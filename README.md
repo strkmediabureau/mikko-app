@@ -36,12 +36,15 @@ Pre-commit checks run automatically before each commit.
 
 ## API Endpoints    
 
-| Endpoint                   | Description                  |
-| -------------------------- |------------------------------|
-| `/api/login`                 | Get API token                |
-| `/api/payroll`           | Get curent year payroll data |
-| `/api/payroll/{year}`        | Get payroll data by year     |
-| `/api/payroll?from=2026-02&to=2026-12` | Get payroll data by filter   |
+| Endpoint                                        | Description                     |
+|-------------------------------------------------|---------------------------------|
+| `/api/login`                                    | Get API token                   |
+| `/api/payroll`                                  | Get curent year payroll data    |
+| `/api/payroll/{year}`                           | Get payroll data by year        |
+| `/api/payroll?from=2026-02&to=2026-12`          | Get payroll data by filter      |
+| `/api/payroll/exporter`                         | Export curent year payroll data |
+| `/api/payroll/exporter{year}`                   | Export payroll data by year        |
+| `/api/payroll/exporter?from=2026-02&to=2026-12` | Export payroll data by filter      |
 
 ---
 
