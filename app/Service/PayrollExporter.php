@@ -18,7 +18,7 @@ class PayrollExporter
         fputcsv($handle, [
             'Month',
             'Salary Payment Date',
-            'Bonus Payment Date'
+            'Bonus Payment Date',
         ]);
 
         foreach ($data as $row) {

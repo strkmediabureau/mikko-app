@@ -25,7 +25,7 @@ class PayrollRequest extends FormRequest
         return [
             'year' => 'nullable|integer|min:1970|max:2100',
             'from' => 'nullable|date_format:Y-m',
-            'to'   => 'nullable|date_format:Y-m|after_or_equal:from',
+            'to' => 'nullable|date_format:Y-m|after_or_equal:from',
         ];
     }
 }

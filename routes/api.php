@@ -11,5 +11,6 @@ Route::post('/login', [TokenController::class, 'store']);
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/payroll', [PayrollController::class, 'index']);
+    Route::get('/payroll/exporter', [PayrollController::class, 'exporter']);
 
 });
