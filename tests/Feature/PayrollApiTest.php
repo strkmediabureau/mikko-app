@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PayrollApiTest extends TestCase
 {
@@ -32,13 +32,13 @@ class PayrollApiTest extends TestCase
                 'month',
                 'salaryPaymentDate',
                 'bonusPaymentDate',
-            ]
+            ],
         ]);
     }
 
     public function test_it_returns_payroll_for_specific_year()
     {
-        $response = $this->getJson('/api/payroll/' . 2027);
+        $response = $this->getJson('/api/payroll/'. 2027);
 
         $response->assertOk();
 
@@ -58,7 +58,7 @@ class PayrollApiTest extends TestCase
 
     public function test_salary_is_not_paid_in_weekend()
     {
-        $response = $this->getJson('/api/payroll/' . 2026);
+        $response = $this->getJson('/api/payroll/'. 2026);
 
         $response->assertOk();
 
@@ -77,7 +77,7 @@ class PayrollApiTest extends TestCase
 
     public function test_bonus_rule_uses_first_wednesday_after_weekend()
     {
-        $response = $this->getJson('/api/payroll/' . 2026);
+        $response = $this->getJson('/api/payroll/'. 2026);
 
         $response->assertOk();
 
