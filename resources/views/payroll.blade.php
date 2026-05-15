@@ -10,33 +10,20 @@
             async function loadData() {
                 const response = await fetch('/api/payroll', {
                     headers: {
-                        'Authorization': 'Bearer {{env('SANCTUM_API_TOKEN')}}'
+                        'Authorization': 'Bearer {{ $token }}'
                     }
                 });
 
                 const data = await response.json();
 
-                const tbody = document.querySelector('#table tbody');
-                tbody.innerHTML = '';
-
-                data.forEach(row => {
-                    const tr = document.createElement('tr');
-
-                    tr.innerHTML = `
-                        <td>${row.month}</td>
-                        <td>${row.salaryPaymentDate}</td>
-                        <td>${row.bonusPaymentDate}</td>
-                    `;
-
-                    tbody.appendChild(tr);
-                });
+                renderTable(data);
             }
 
             // Download CSV file from API
             async function downloadCsv() {
                 const response = await fetch('/api/payroll/exporter', {
                     headers: {
-                        'Authorization': 'Bearer {{env('SANCTUM_API_TOKEN')}}'
+                        'Authorization': 'Bearer {{ $token }}'
                     }
                 });
 
@@ -47,6 +34,26 @@
                 a.href = url;
                 a.download = 'payroll.csv';
                 a.click();
+            }
+
+            function renderTable(data) {
+
+                const tbody = document.querySelector('#table tbody');
+
+                tbody.innerHTML = '';
+
+                data.forEach(row => {
+
+                    const tr = document.createElement('tr');
+
+                    tr.innerHTML = `
+                    <td>${row.month}</td>
+                    <td>${row.salaryPaymentDate}</td>
+                    <td>${row.bonusPaymentDate}</td>
+                `;
+
+                    tbody.appendChild(tr);
+                });
             }
         </script>
     </head>

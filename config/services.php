@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'payroll_api' => [
+        'token' => env('SANCTUM_API_TOKEN'),
+    ],
+
 ];
